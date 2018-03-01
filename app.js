@@ -4,16 +4,31 @@ var favicon = require("serve-favicon");
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
 
-var index = require("./routes/index");
-var users = require("./routes/users");
+var isProduction = process.env.NODE_ENV === "production";
 
 var app = express();
 
 // view engine setup
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
+//connect to our database monogo
+if (isProduction) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect("mongodb://localhost/killick", function(err) {
+    if (err) return console.error(err);
+    console.log("THE DB, mongo, is connected, and I ROCK");
+  });
+  mongoose.set("debug", true);
+}
+
+//import models as soon as we are connected!!!!!!
+require("./models/Articles");
+app.use(require("./routes"));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger("dev"));
