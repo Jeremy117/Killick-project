@@ -4,6 +4,7 @@ const defaultState = {
   articles: null
 };
 
+//seting up our APP_LOAD AND REDIRECT reducers
 export default (state = defaultState, action) => {
   switch (action.type) {
     case "APP_LOAD":
@@ -21,6 +22,7 @@ export default (state = defaultState, action) => {
         currentUser: action.error ? null : action.payload.user,
         redirectTo: action.error ? null : "/"
       };
+      //need to handle some error.
     }
     default:
       return state;

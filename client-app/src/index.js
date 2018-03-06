@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
 import { ConnectedRouter } from "react-router-redux";
 import "./index.css";
-import App from "./components/App";
+import App from "./components/App.js";
 import { reduxStore, history } from "./store";
 
 import registerServiceWorker from "./registerServiceWorker";
