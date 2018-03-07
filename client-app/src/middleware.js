@@ -23,6 +23,7 @@ const localStorageMiddleware = store => next => action => {
   if (action.type === "LOGIN" || action.type === "REGISTER") {
     if (!action.error) {
       window.localStorage.setItem("jwt", action.payload.user.token);
+      //set axios header auth instance
       services.setToken(action.payload.user.token);
     }
   }

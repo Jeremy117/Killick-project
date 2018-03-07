@@ -11,11 +11,15 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         token: action.token || null,
+        currentUser: action.error ? null : action.payload.user,
         appLoaded: true
       };
     case "REDIRECT":
       return { ...state, redirectTo: null };
-    case "LOGIN": {
+    case "LOGOUT":
+      return { ...state, redirectTo: "/", token: null, currentUser: null };
+    case "LOGIN":
+    case "REGISTER": {
       return {
         ...state,
         token: action.error ? null : action.payload.user.token,
