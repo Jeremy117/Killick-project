@@ -9,7 +9,8 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-redux": "^5.0.0-alpha.6",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "cross-env PORT=4100 react-scripts start",
