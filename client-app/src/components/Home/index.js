@@ -18,6 +18,7 @@ class Home extends Component {
   componentDidMount() {
     this.props.onLoad(services.Articles.all());
   }
+
   render() {
     return (
       <div className="home-page">
