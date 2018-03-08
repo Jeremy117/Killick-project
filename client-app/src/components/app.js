@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import { push } from "react-router-redux";
 import { connect } from "react-redux";
-
 import { reduxStore } from "../store";
 import services from "../services";
 import Header from "./Header";
@@ -10,6 +9,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Settings from "./Settings/index.js";
+import Article from "./Article";
 
 const mapStateToProps = state => ({
   appLoaded: state.common.appLoaded,
@@ -54,6 +54,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/settings" component={Settings} />
+          <Route path="/article/:id" component={Article} />
         </Switch>
       </div>
     );
