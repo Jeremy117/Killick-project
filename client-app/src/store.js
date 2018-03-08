@@ -2,10 +2,13 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { routerReducer, routerMiddleware } from "react-router-redux";
 import { createLogger } from "redux-logger";
 import { promiseMiddleware, localStorageMiddleware } from "./middleware";
+
 import createHistory from "history/createBrowserHistory";
+
 import auth from "./reducers/auth";
 import common from "./reducers/common";
 import home from "./reducers/home";
+import settings from "./reducers/settings";
 //init browser history API
 export const history = createHistory();
 
@@ -16,6 +19,7 @@ const reducer = combineReducers({
   auth,
   common,
   home,
+  settings,
   router: routerReducer
 });
 

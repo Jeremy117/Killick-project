@@ -17,7 +17,8 @@ const responseData = res => res.data;
 
 const requests = {
   get: url => axiosInstance.get(`${url}`).then(responseData),
-  post: (url, body) => axiosInstance.post(`${url}`, body).then(responseData)
+  post: (url, body) => axiosInstance.post(`${url}`, body).then(responseData),
+  put: (url, body) => axiosInstance.put(`${url}`, body).then(responseData)
 };
 
 const Articles = {
