@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "/api",
-  timeout: 9000,
+  timeout: 5000,
   headers: {
     "Content-Type": "application/json"
   }
@@ -23,11 +23,14 @@ const requests = {
 
 const Articles = {
   all: page => requests.get(`/articles?limit=10`),
-  get: slug => requests.get("articles/${slug}")
+  get: slug => requests.get(`/articles/${slug}`),
+  create: article => requests.post("/articles", { article })
 };
 
 const Comments = {
-  forArticle: slug => requests.get(`/articles/${slug}/comments`)
+  forArticle: slug => requests.get(`/articles/${slug}/comments`),
+  create: (slug, body) =>
+    requests.post(`articles/${slug}/comments`, { comment: body })
 };
 
 const Auth = {
