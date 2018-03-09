@@ -9,7 +9,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
-import Settings from "./Settings";
+import Settings from "./Settings/index.js";
 import Article from "./Article";
 import Editor from "./Editor";
 
@@ -57,6 +57,7 @@ class App extends Component {
           <Route path="/register" component={Register} />
           <Route path="/settings" component={Settings} />
           <Route path="/article/:id" component={Article} />
+          <Route path="/editor/:slug" component={Editor} />
           <Route path="/editor" component={Editor} />
         </Switch>
       </div>
